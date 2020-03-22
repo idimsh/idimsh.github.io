@@ -14,6 +14,8 @@ exclude:
   - Dockerfile*
   - docker-compose*
 
+url: "https://idimsh.github.io/" # the base hostname & protocol for your site
+
 plugins:
   - jekyll-octicons
   - jekyll-github-metadata
@@ -34,12 +36,12 @@ projects:
   # sort_by options:
   #   - pushed
   #   - stars
-  limit: 9
+  limit: 20
   exclude:
     archived: false
     forks: true
     projects:
-    # - repo-name
+     - idimsh.github.io
 
 # social_media:
   # behance: your_username
@@ -58,14 +60,3 @@ projects:
   # vk: your_username
   # website: http://your_website_url
   # youtube: your_username
-
-topics:
-  - name: CSS
-    web_url: https://github.com/topics/css
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/css/css.png
-
-  - name: Web design
-
-  - name: Sass
-    web_url: https://github.com/topics/sass
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/sass/sass.png
