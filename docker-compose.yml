@@ -1,0 +1,66 @@
+version: '3.7'
+
+networks:
+  default:
+    name: gh-pages-net
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+#          gateway: 172.20.0.1
+
+
+services:
+#  jekyll:
+#    image: jekyll/jekyll:3.8
+#    container_name: jekyll
+#    hostname: jekyll.gh-pages.loc
+#    networks:
+#      default:
+#        aliases:
+#          - jekyll
+#          - jekyll.gh-pages.loc
+##    environment:
+##      - "JEKYLL_GITHUB_TOKEN:${JEKYLL_GITHUB_TOKEN}"
+#    ports:
+#      - "4000:4000"
+#    volumes:
+#      - './:/srv/jekyll:rw'
+##      - '/home/dimsh/Projects/idimsh.github.io:/srv/jekyll:rw'
+##      - 'd:/data-root/Projects/PHP/Personal/idimsh.github.io:/srv/jekyll:rw'
+#    tty: true
+#    working_dir: /srv/jekyll
+#    command:
+#      - jekyll
+#      - serve
+#      - -d
+#      - /_site
+#      - --watch
+#      - --force_polling
+#      - -H
+#      - 0.0.0.0
+#      - -P
+#      - "4000"
+
+
+  jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jekyll
+    hostname: jekyll.gh-pages.loc
+    networks:
+      default:
+        aliases:
+          - jekyll
+          - jekyll.gh-pages.loc
+    ports:
+      - "4000:4000"
+    volumes:
+      - './:/srv/jekyll:rw'
+#      - '/home/dimsh/Projects/idimsh.github.io:/srv/jekyll:rw'
+#      - 'd:/data-root/Projects/PHP/Personal/idimsh.github.io:/srv/jekyll:rw'
+    tty: true
+    working_dir: /srv/jekyll
+

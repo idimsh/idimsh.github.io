@@ -1,0 +1,31 @@
+FROM ruby:2.7.0
+MAINTAINER Abdulrahman Dimashki <idimsh@gmail.com>
+
+#docker build -t "idimsh-jekyll:v2.0" -f Dockerfile-setup2 .
+#docker run -it --rm -v d:/data-root/Projects/PHP/Personal/idimsh.github.io:/srv/jekyll "idimsh-jekyll:v2.0" /bin/bash
+
+
+############################
+## Terminal enhancements
+############################
+RUN cd /root && \
+    git clone https://gist.github.com/1980f616aef1d17106df06304d993d56.git && \
+    mv 1980f616aef1d17106df06304d993d56/bash-aliases.sh /opt/bash-aliases && \
+    rm -rf 1980f616aef1d17106df06304d993d56 && \
+    /bin/echo -e "\n\n## idimsh bash aliases ####\n. /opt/bash-aliases\n\n" | tee -a /root/.bashrc /etc/skel/.bashrc && \
+    true
+
+
+RUN apt-get update --fix-missing
+RUN apt-get install -y --no-install-recommends locales
+RUN locale-gen en_US.UTF-8
+RUN apt-get install -y --no-install-recommends apt-utils
+RUN gem install bundler
+
+RUN gem install jekyll -- --use-system-libraries
+
+
+WORKDIR /srv/jekyll
+VOLUME  /srv/jekyll
+
+EXPOSE 4000 80
