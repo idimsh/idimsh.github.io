@@ -10,23 +10,24 @@
 
 {% assign user = site.github.owner %}
 
-{% if page.path contains '_posts' %}
-  {% assign page_title = page.title %}
-  {% assign meta_description = page.content | strip_html | strip_newlines | xml_escape | truncate: 300 %}
+{% if site.description %}
+  {% assign meta_description = site.description %}
 {% else %}
-  {% assign page_title = user.name %}
-  {% assign meta_description = user.bio | strip_html | strip_newlines | xml_escape | truncate: 300 %}
+  {% if page.path contains '_posts' %}
+    {% assign page_title = page.title %}
+    {% assign meta_description = page.content | strip_html | strip_newlines | xml_escape | truncate: 300 %}
+  {% else %}
+    {% assign page_title = user.name %}
+    {% assign meta_description = user.bio | strip_html | strip_newlines | xml_escape | truncate: 300 %}
+  {% endif %}
 {% endif %}
+
 
 <!doctype html>
 <html class="min-height-full">
   <head>
     <meta charset="utf-8">
-    <title>{{ page_title }}</title>
-    <meta name="description" content="{{ meta_description }}" />
-    <meta property="og:title" content="{{ user.name }}" />
-    <meta property="og:image" content="{{ user.avatar_url }}" />
-    <meta property="og:description" content="{{ meta_description }}" />
+    {% include seo-meta.html %}
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="google-site-verification" content="PwNjpsvrcLuWNf9OgBxPkG575N93QJT3jALAIFhfrAc" />
     <link href="{{ "/assets/styles.css" | relative_url }}" rel="stylesheet" type="text/css">

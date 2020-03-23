@@ -14,7 +14,12 @@ exclude:
   - Dockerfile*
   - docker-compose*
 
+
+# Seo meta
+title: "Abdulrahman Dimashki (idimsh) Github Pages"
+description: "Open source Github projects in PHP and other languages developed by Abdulrahman Dimashki (idimsh), covering docker, composer, PHP7, and other topics"
 url: "https://idimsh.github.io/" # the base hostname & protocol for your site
+
 
 plugins:
   - jekyll-octicons

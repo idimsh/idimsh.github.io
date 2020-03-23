@@ -28,6 +28,17 @@ RUN echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && \
 
 RUN gem install bundler jekyll
 
+RUN echo 'source "https://rubygems.org"\n\
+gem "github-pages", group: :jekyll_plugins\n\
+gem "jekyll-github-metadata"\n\
+gem "jekyll-octicons"\n\
+gem "jemoji"\n'\
+> /tmp/Gemfile
+
+RUN printf "\nBuilding required Ruby gems. Please wait...\n\n" && \
+    bundle install --gemfile /tmp/Gemfile && \
+    rm -f /tmp/Gemfile*
+
 COPY Gemfile /tmp/Gemfile
 RUN bundle install --gemfile /tmp/Gemfile && \
     rm -f /tmp/Gemfile* Gemfile*
