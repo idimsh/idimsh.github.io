@@ -16,7 +16,12 @@
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#030711">
     <meta name="google-site-verification" content="PwNjpsvrcLuWNf9OgBxPkG575N93QJT3jALAIFhfrAc" />
+    <link rel="preload" href="/assets/chakra-petch-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
     <style>
+      /* Chakra Petch, self-hosted (SIL OFL 1.1, see assets/OFL-ChakraPetch.txt) */
+      @font-face { font-family: 'Chakra Petch'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/chakra-petch-latin-400-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Chakra Petch'; font-style: normal; font-weight: 600; font-display: swap; src: url('/assets/chakra-petch-latin-600-normal.woff2') format('woff2'); }
+      @font-face { font-family: 'Chakra Petch'; font-style: normal; font-weight: 700; font-display: swap; src: url('/assets/chakra-petch-latin-700-normal.woff2') format('woff2'); }
       :root {
         --bg: #030711;
         --surface: rgba(17, 24, 39, 0.72);
@@ -120,6 +125,12 @@
       .contact-link { margin-top: 6px; padding-top: 14px; border-top: 1px solid rgba(87, 102, 127, 0.35); font-family: var(--mono); font-size: 15px; color: var(--primary); overflow-wrap: anywhere; }
       .contact-card:hover .contact-link { color: var(--accent); }
       @media (prefers-reduced-motion: reduce) { .contact-card:hover { transform: none; } }
+
+      /* Display font: hero text and all headings */
+      h1, h2, h3, h4, h5, h6, .lead { font-family: 'Chakra Petch', var(--sans); }
+      h1 { font-weight: 700; letter-spacing: -0.01em; }
+      h1 .hl { font-weight: 600; letter-spacing: 0; }
+      h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: 0; }
 
       footer { padding: 32px 0 48px; border-top: 1px solid rgba(87, 102, 127, 0.3); color: var(--muted); font-size: 14px; }
       footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
