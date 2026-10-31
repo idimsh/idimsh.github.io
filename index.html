@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="min-height-full">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Thomas Dimashki – Cloud-Native &amp; DevOps Engineer</title>
@@ -12,113 +12,233 @@
     <meta property="og:url" content="https://idimsh.github.io/" />
     <meta property="og:locale" content="en" />
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/5890777?v=4" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#030711">
     <meta name="google-site-verification" content="PwNjpsvrcLuWNf9OgBxPkG575N93QJT3jALAIFhfrAc" />
-    <link href="/assets/styles.css" rel="stylesheet" type="text/css">
+    <style>
+      :root {
+        --bg: #030711;
+        --surface: rgba(17, 24, 39, 0.72);
+        --surface-solid: #111827;
+        --fg: #f8fafc;
+        --muted: #9ca3af;
+        --border: rgba(87, 102, 127, 0.55);
+        --primary: #ec4699;
+        --primary-soft: rgba(236, 70, 153, 0.10);
+        --primary-line: rgba(236, 70, 153, 0.50);
+        --accent: #e87bf9;
+        --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      html { background: var(--bg); }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--fg);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.6;
+        background-color: var(--bg);
+        background-image:
+          radial-gradient(60rem 40rem at 90% -10%, rgba(236, 70, 153, 0.20), transparent 60%),
+          radial-gradient(50rem 40rem at -10% 40%, rgba(168, 85, 247, 0.14), transparent 60%),
+          radial-gradient(40rem 30rem at 70% 110%, rgba(232, 123, 249, 0.10), transparent 60%),
+          linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+        background-size: auto, auto, auto, 48px 48px, 48px 48px;
+        background-attachment: fixed;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: var(--primary); text-decoration: none; }
+      a:hover { color: var(--accent); }
+      a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+      .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+      /* Header */
+      .top { border-bottom: 1px solid var(--border); background: rgba(3, 7, 17, 0.6); backdrop-filter: blur(8px); }
+      .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+      .brand { display: flex; align-items: center; gap: 12px; color: var(--fg); font-weight: 600; }
+      .brand:hover { color: var(--fg); }
+      .brand-mark { width: 36px; height: 36px; display: grid; place-items: center; border: 2px solid var(--primary); background: var(--primary-soft); box-shadow: 0 0 18px rgba(236, 70, 153, 0.45); font-family: var(--mono); font-size: 14px; color: var(--primary); }
+      .nav { display: flex; gap: 24px; font-size: 15px; }
+      .nav a { color: #cbd5e1; }
+      .nav a:hover { color: var(--fg); }
+
+      /* Hero */
+      .hero { position: relative; padding: 80px 0 64px; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+      .label { display: inline-block; font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--primary); background: var(--primary-soft); border: 1px solid var(--primary-line); padding: 6px 12px; }
+      h1 { margin: 20px 0 16px; font-size: clamp(2.5rem, 6vw, 4.25rem); line-height: 1.05; font-weight: 600; letter-spacing: -0.04em; }
+      h1 .hl { color: var(--primary); text-shadow: 0 0 28px rgba(236, 70, 153, 0.45); }
+      .lead { max-width: 38rem; margin: 0 0 24px; font-size: 1.15rem; color: #cbd5e1; }
+      .lead strong { color: var(--fg); font-weight: 600; }
+      .facts { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 32px; padding: 0; list-style: none; }
+      .facts li { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--border); background: var(--surface); font-size: 14px; }
+      .facts li::before { content: ""; width: 10px; height: 10px; background: var(--primary); box-shadow: 0 0 8px rgba(236, 70, 153, 0.7); }
+      .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; font-weight: 500; font-size: 15px; color: #fff; background: var(--primary); border: 2px solid var(--primary); box-shadow: 4px 4px 0 rgba(232, 123, 249, 0.32), 0 0 24px rgba(236, 70, 153, 0.34); transition: transform .15s ease, box-shadow .15s ease; }
+      .btn:hover { color: #fff; transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(232, 123, 249, 0.4), 0 0 32px rgba(236, 70, 153, 0.45); }
+      .btn-ghost { margin-left: 16px; color: #cbd5e1; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--border); }
+      .avatar { position: relative; width: 220px; height: 220px; padding: 10px; border: 2px solid var(--border); background: var(--surface); }
+      .avatar img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.15) contrast(1.05); }
+      .avatar::before, .avatar::after { content: ""; position: absolute; width: 56px; height: 56px; border: 2px solid var(--primary); box-shadow: 0 0 16px rgba(236, 70, 153, 0.5); }
+      .avatar::before { top: -10px; left: -10px; border-right: 0; border-bottom: 0; }
+      .avatar::after { bottom: -10px; right: -10px; border-left: 0; border-top: 0; }
+
+      /* Sections */
+      section { padding: 48px 0; border-top: 1px solid rgba(87, 102, 127, 0.3); }
+      .sec-head { position: relative; margin-bottom: 28px; padding-left: 20px; border-left: 2px solid var(--primary); }
+      h2 { margin: 12px 0 6px; font-size: 1.75rem; line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
+      .sec-head p { margin: 0; color: var(--muted); }
+
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+      .card { display: flex; flex-direction: column; gap: 10px; padding: 20px; color: var(--fg); background: var(--surface); border: 2px solid var(--border); transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+      .card:hover { color: var(--fg); border-color: var(--primary); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 rgba(232, 123, 249, 0.28), 0 0 24px rgba(236, 70, 153, 0.22); }
+      .card-title { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1.05rem; color: var(--fg); }
+      .card-title .ico { color: var(--primary); flex: none; }
+      .card-desc { color: var(--muted); font-size: 0.95rem; flex: 1; }
+      .card-tag { align-self: flex-start; font-family: var(--mono); font-size: 12px; color: var(--accent); border: 1px solid rgba(232, 123, 249, 0.4); padding: 2px 8px; }
+
+      .steps { list-style: none; margin: 0; padding: 0; }
+      .steps li { display: grid; grid-template-columns: 56px 1fr; gap: 8px; padding: 18px 0; border-bottom: 1px solid rgba(87, 102, 127, 0.3); }
+      .steps li:last-child { border-bottom: 0; }
+      .num { font-family: var(--mono); color: var(--primary); padding-top: 2px; }
+      .steps strong { display: block; font-size: 1.1rem; }
+      .steps strong a { color: var(--fg); }
+      .steps strong a:hover { color: var(--primary); }
+      .steps span { color: var(--muted); }
+
+      .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+      .chips li { font-family: var(--mono); font-size: 14px; padding: 8px 14px; border: 1px solid var(--primary-line); background: var(--primary-soft); color: #fbcfe8; }
+
+      footer { padding: 32px 0 48px; border-top: 1px solid rgba(87, 102, 127, 0.3); color: var(--muted); font-size: 14px; }
+      footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+      footer .mono { font-family: var(--mono); }
+
+      @media (max-width: 760px) {
+        .nav { display: none; }
+        .hero { grid-template-columns: 1fr; padding: 48px 0 40px; gap: 32px; }
+        .avatar { order: -1; width: 140px; height: 140px; padding: 6px; }
+        .avatar::before, .avatar::after { width: 36px; height: 36px; }
+        .btn-ghost { display: inline-block; margin: 16px 0 0; }
+        .wrap { padding: 0 16px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { transition: none !important; }
+        .card:hover, .btn:hover { transform: none; }
+      }
+    </style>
   </head>
-  <body class="bg-white min-height-full">
-  <div class="d-md-flex min-height-full border-md-bottom">
-    <div class="flex-self-stretch border-md-right border-gray-light bg-white col-md-5 col-lg-4 col-xl-3 px-4 px-md-6 px-lg-7 py-6">
-      <img src="https://avatars.githubusercontent.com/u/5890777?v=4" alt="Thomas Dimashki" class="circle mb-3" style="max-width: 150px;">
-      <h1 class="mb-2 lh-condensed">Thomas Dimashki</h1>
-      <p class="mb-3 f4 text-gray">Cloud-native &amp; DevOps engineer since 2005 · PHP/Go · Building AI agent skills</p>
-      <div class="f4 mb-6">
-        <div class="d-flex flex-items-center mb-3">
-          <svg height="20" class="octicon octicon-mark-github mr-2 v-align-middle" fill="#24292e" aria-label="GitHub" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.540 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.780-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-          <a href="https://github.com/idimsh">@idimsh</a>
-        </div>
-        <div class="d-flex flex-items-center mb-3">
-          <svg height="20" class="octicon octicon-briefcase mr-2 v-align-middle" fill="#24292e" aria-label="Work" viewBox="0 0 14 16" width="17"><path fill-rule="evenodd" d="M9 4V3c0-.55-.45-1-1-1H6c-.55 0-1 .45-1 1v1H1c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1H9zM6 3h2v1H6V3zm7 6H8v1H6V9H1V5h1v3h10V5h1v4z"></path></svg>
-          Freelance
-        </div>
-        <div class="d-flex flex-items-center mb-3">
-          <svg height="20" class="octicon octicon-location mr-2 v-align-middle" fill="#24292e" aria-label="Location" viewBox="0 0 12 16" width="15"><path fill-rule="evenodd" d="M6 0C2.690 0 0 2.5 0 5.5 0 10.02 6 16 6 16s6-5.98 6-10.5C12 2.5 9.31 0 6 0zm0 14.55C4.14 12.52 1 8.44 1 5.5 1 3.02 3.25 1 6 1c1.34 0 2.61.48 3.56 1.36.92.86 1.44 1.97 1.44 3.14 0 2.94-3.14 7.02-5 9.05zM8 5.5c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg>
-          Frankfurt am Main, Germany
-        </div>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <a class="brand" href="https://idimsh.github.io/"><span class="brand-mark" aria-hidden="true">&gt;_</span>idimsh</a>
+        <nav class="nav" aria-label="Sections">
+          <a href="#work">Work</a>
+          <a href="#open-source">Open source</a>
+          <a href="#contributions">Contributions</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
-    </div>
-    <div class="col-md-7 col-lg-8 col-xl-9 px-4 py-6 px-lg-7 border-top border-md-top-0 bg-gray-light">
-      <div class="mx-auto" style="max-width: 900px;">
-      <h2>What I'm working on</h2>
-      <p class="f4 mb-4 text-gray">Portable SKILL.md skills for Claude, Codex and other AI coding agents.</p>
-      <div class="d-sm-flex flex-wrap gutter-condensed mb-4">
-        <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
-          <div class="github-component d-flex flex-column flex-justify-between height-full text-left border border-gray-light bg-white rounded-1 p-3">
-            <div>
-              <h3 class="f4 lh-condensed mb-1"><a href="https://github.com/idimsh/tdds-business-skills"><svg class="octicon octicon-repo mr-1 v-align-middle" fill="#586069" aria-hidden="true" viewBox="0 0 12 16" width="12" height="16"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>tdds-business-skills</a></h3>
-              <div class="text-gray mb-2 ws-normal">Accessibility (WCAG 2.2 AA), UX/UI and German legal audits, business design, premortems, prompt &amp; context engineering, dependency updates</div>
-            </div>
-            <div class="d-flex f6">
-              <span class="repo-language-color ml-0 mr-1" style="background-color:#6e5494"></span>
-              <span class="mr-3">Agent skills</span>
-            </div>
-          </div>
+    </header>
+
+    <main class="wrap">
+      <div class="hero">
+        <div>
+          <span class="label">Freelance · Frankfurt am Main, Germany</span>
+          <h1>Thomas Dimashki<br><span class="hl">Cloud-native &amp; DevOps</span></h1>
+          <p class="lead">Building software and infrastructure since 2005, from PHP back ends to containers and, today, <strong>AI agent tooling</strong>.</p>
+          <ul class="facts">
+            <li>Since 2005</li>
+            <li>PHP / Go</li>
+            <li>Building AI agent skills</li>
+          </ul>
+          <a class="btn" href="https://github.com/idimsh">View GitHub profile <span aria-hidden="true">→</span></a>
+          <a class="btn-ghost" href="#work">See my work</a>
         </div>
-        <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
-          <div class="github-component d-flex flex-column flex-justify-between height-full text-left border border-gray-light bg-white rounded-1 p-3">
-            <div>
-              <h3 class="f4 lh-condensed mb-1"><a href="https://github.com/idimsh/tdds-frontend-skills"><svg class="octicon octicon-repo mr-1 v-align-middle" fill="#586069" aria-hidden="true" viewBox="0 0 12 16" width="12" height="16"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>tdds-frontend-skills</a></h3>
-              <div class="text-gray mb-2 ws-normal">Local WCAG 2.2 audits on a dev server, Next.js/React pre-delivery checks, privacy-first Umami analytics</div>
-            </div>
-            <div class="d-flex f6">
-              <span class="repo-language-color ml-0 mr-1" style="background-color:#6e5494"></span>
-              <span class="mr-3">Agent skills</span>
-            </div>
-          </div>
-        </div>
+        <div class="avatar"><img src="https://avatars.githubusercontent.com/u/5890777?v=4" alt="Thomas Dimashki" width="200" height="200"></div>
       </div>
-      <h2>Open source</h2>
-      <p class="f4 mb-4 text-gray">Libraries and tools I've built.</p>
-      <div class="d-sm-flex flex-wrap gutter-condensed mb-4">
-        <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
-          <div class="github-component d-flex flex-column flex-justify-between height-full text-left border border-gray-light bg-white rounded-1 p-3">
-            <div>
-              <h3 class="f4 lh-condensed mb-1"><a href="https://github.com/idimsh/php-inotify-monitor"><svg class="octicon octicon-repo mr-1 v-align-middle" fill="#586069" aria-hidden="true" viewBox="0 0 12 16" width="12" height="16"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>php-inotify-monitor</a></h3>
-              <div class="text-gray mb-2 ws-normal">File-system watcher (create / modify / delete) built on the PHP inotify extension and ReactPHP</div>
-            </div>
-            <div class="d-flex f6">
-              <span class="repo-language-color ml-0 mr-1" style="background-color:#4F5D95"></span>
-              <span class="mr-3">PHP</span>
-            </div>
-          </div>
+
+      <section id="work" aria-labelledby="work-title">
+        <div class="sec-head">
+          <span class="label">What I'm working on</span>
+          <h2 id="work-title">AI agent skills</h2>
+          <p>Portable SKILL.md skills for Claude, Codex and other AI coding agents.</p>
         </div>
-        <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
-          <div class="github-component d-flex flex-column flex-justify-between height-full text-left border border-gray-light bg-white rounded-1 p-3">
-            <div>
-              <h3 class="f4 lh-condensed mb-1"><a href="https://github.com/idimsh/php-internals-mocker"><svg class="octicon octicon-repo mr-1 v-align-middle" fill="#586069" aria-hidden="true" viewBox="0 0 12 16" width="12" height="16"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>php-internals-mocker</a></h3>
-              <div class="text-gray mb-2 ws-normal">Mock PHP internal function calls in unit tests</div>
-            </div>
-            <div class="d-flex f6">
-              <span class="repo-language-color ml-0 mr-1" style="background-color:#4F5D95"></span>
-              <span class="mr-3">PHP</span>
-            </div>
-          </div>
+        <div class="grid">
+        <a class="card" href="https://github.com/idimsh/tdds-business-skills">
+          <span class="card-title"><svg class="ico" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"></path></svg>tdds-business-skills</span>
+          <span class="card-desc">Accessibility (WCAG 2.2 AA), UX/UI and German legal audits, business design, premortems, prompt &amp; context engineering, dependency updates</span>
+          <span class="card-tag">agent skills</span>
+        </a>
+        <a class="card" href="https://github.com/idimsh/tdds-frontend-skills">
+          <span class="card-title"><svg class="ico" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"></path></svg>tdds-frontend-skills</span>
+          <span class="card-desc">Local WCAG 2.2 audits on a dev server, Next.js/React pre-delivery checks, privacy-first Umami analytics</span>
+          <span class="card-tag">agent skills</span>
+        </a>
         </div>
-        <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
-          <div class="github-component d-flex flex-column flex-justify-between height-full text-left border border-gray-light bg-white rounded-1 p-3">
-            <div>
-              <h3 class="f4 lh-condensed mb-1"><a href="https://github.com/idimsh/scripts"><svg class="octicon octicon-repo mr-1 v-align-middle" fill="#586069" aria-hidden="true" viewBox="0 0 12 16" width="12" height="16"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>scripts</a></h3>
-              <div class="text-gray mb-2 ws-normal">Bash and MySQL helper scripts for Ubuntu servers</div>
-            </div>
-            <div class="d-flex f6">
-              <span class="repo-language-color ml-0 mr-1" style="background-color:#89e051"></span>
-              <span class="mr-3">Shell</span>
-            </div>
-          </div>
+      </section>
+
+      <section id="open-source" aria-labelledby="os-title">
+        <div class="sec-head">
+          <span class="label">Open source</span>
+          <h2 id="os-title">Libraries and tools I've built</h2>
+          <p>Published on GitHub and Packagist.</p>
         </div>
+        <div class="grid">
+        <a class="card" href="https://github.com/idimsh/php-inotify-monitor">
+          <span class="card-title"><svg class="ico" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"></path></svg>php-inotify-monitor</span>
+          <span class="card-desc">File-system watcher (create / modify / delete) built on the PHP inotify extension and ReactPHP</span>
+          <span class="card-tag">php</span>
+        </a>
+        <a class="card" href="https://github.com/idimsh/php-internals-mocker">
+          <span class="card-title"><svg class="ico" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"></path></svg>php-internals-mocker</span>
+          <span class="card-desc">Mock PHP internal function calls in unit tests</span>
+          <span class="card-tag">php</span>
+        </a>
+        <a class="card" href="https://github.com/idimsh/scripts">
+          <span class="card-title"><svg class="ico" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"></path></svg>scripts</span>
+          <span class="card-desc">Bash and MySQL helper scripts for Ubuntu servers</span>
+          <span class="card-tag">shell</span>
+        </a>
+        </div>
+      </section>
+
+      <section id="contributions" aria-labelledby="contrib-title">
+        <div class="sec-head">
+          <span class="label">Contributions</span>
+          <h2 id="contrib-title">Merged into other projects</h2>
+        </div>
+        <ol class="steps">
+          <li><span class="num">01</span><div><strong><a href="https://github.com/tessig/flamingo-mysql">tessig/flamingo-mysql</a></strong><span>Connection settings, migration error handling, CUE config type fix</span></div></li>
+          <li><span class="num">02</span><div><strong><a href="https://github.com/i-love-flamingo/flamingo-commerce">i-love-flamingo/flamingo-commerce</a></strong><span>Sort options for the fake search adapter</span></div></li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="tech-title">
+        <div class="sec-head">
+          <span class="label">Stack</span>
+          <h2 id="tech-title">Tech I work with</h2>
+        </div>
+        <ul class="chips">
+          <li>PHP</li><li>Go</li><li>Docker</li><li>Bash</li><li>MySQL</li><li>AI agent skills</li>
+        </ul>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="sec-head">
+          <span class="label">Get in touch</span>
+          <h2 id="contact-title">Let's talk code</h2>
+          <p>Open an issue in any of my <a href="https://github.com/idimsh?tab=repositories">repositories</a> on GitHub.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>© Thomas Dimashki</span>
+        <span class="mono"><a href="https://github.com/idimsh">github.com/idimsh</a></span>
       </div>
-      <h2>Contributions</h2>
-      <p class="f4 mb-4 text-gray">Merged contributions to other projects.</p>
-      <ul class="f4 mb-4 ml-4">
-        <li class="mb-2"><a href="https://github.com/tessig/flamingo-mysql">tessig/flamingo-mysql</a>: connection settings, migration error handling, CUE config type fix</li>
-        <li class="mb-2"><a href="https://github.com/i-love-flamingo/flamingo-commerce">i-love-flamingo/flamingo-commerce</a>: sort options for the fake search adapter</li>
-      </ul>
-      <h2>Tech I work with</h2>
-      <p class="f4 mb-4 text-gray">PHP · Go · Docker · Bash · MySQL · AI agent skills</p>
-      <h2>Get in touch</h2>
-      <p class="f4 mb-4 text-gray">Open an issue in any of my <a href="https://github.com/idimsh?tab=repositories">repositories</a> on GitHub.</p>
-      </div>
-    </div>
-  </div>
+    </footer>
   </body>
 </html>
