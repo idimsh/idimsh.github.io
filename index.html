@@ -111,6 +111,16 @@
       .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
       .chips li { font-family: var(--mono); font-size: 14px; padding: 8px 14px; border: 1px solid var(--primary-line); background: var(--primary-soft); color: #fbcfe8; }
 
+      .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+      .contact-card { display: flex; flex-direction: column; gap: 10px; padding: 24px; color: var(--fg); background: var(--surface); border: 2px solid var(--border); transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+      .contact-card:hover { color: var(--fg); border-color: var(--primary); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 rgba(232, 123, 249, 0.28), 0 0 24px rgba(236, 70, 153, 0.22); }
+      .contact-card .num { font-size: 14px; padding: 0; }
+      .contact-kind { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; }
+      .contact-text { color: var(--muted); flex: 1; }
+      .contact-link { margin-top: 6px; padding-top: 14px; border-top: 1px solid rgba(87, 102, 127, 0.35); font-family: var(--mono); font-size: 15px; color: var(--primary); overflow-wrap: anywhere; }
+      .contact-card:hover .contact-link { color: var(--accent); }
+      @media (prefers-reduced-motion: reduce) { .contact-card:hover { transform: none; } }
+
       footer { padding: 32px 0 48px; border-top: 1px solid rgba(87, 102, 127, 0.3); color: var(--muted); font-size: 14px; }
       footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
       footer .mono { font-family: var(--mono); }
@@ -229,7 +239,21 @@
         <div class="sec-head">
           <span class="label">Get in touch</span>
           <h2 id="contact-title">Let's talk code</h2>
-          <p>Open an issue in any of my <a href="https://github.com/idimsh?tab=repositories">repositories</a> on GitHub, or reach me via the <a href="https://selixweb.io/en/contact">SelixWeb contact page</a>.</p>
+          <p>Two ways to reach me. Pick the one that suits you.</p>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-card" href="https://github.com/idimsh?tab=repositories">
+            <span class="num">01</span>
+            <span class="contact-kind">GitHub</span>
+            <span class="contact-text">Open an issue in any of my repositories for questions, bugs or ideas about my projects.</span>
+            <span class="contact-link">github.com/idimsh <span aria-hidden="true">→</span></span>
+          </a>
+          <a class="contact-card" href="https://selixweb.io/">
+            <span class="num">02</span>
+            <span class="contact-kind">Website</span>
+            <span class="contact-text">For project enquiries and freelance work, get in touch through my website.</span>
+            <span class="contact-link">https://selixweb.io/ <span aria-hidden="true">→</span></span>
+          </a>
         </div>
       </section>
     </main>
